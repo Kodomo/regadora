@@ -1,0 +1,12 @@
+[Unit]
+Description=Sample-WebInterface
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/srv/web-interface
+ExecStart=/usr/local/bin/gunicorn -b 0.0.0.0:80 wsgi:app --access-logfile /var/log/web-access.log --error-logfile /var/log/web-error.log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card-body container ">
+    <div class="row">
+
+          <div class="media-body">
+            <legend class="border-bottom mb-4">{{ title }}</legend>
+            
+        <div class="card text-white mb-3 text-center">
+          <div class="card-header bg-primary"><h4 class="text-white"><i class="fas fa-user-circle pr-2"></i>Mi Regadora</h4></div>
+          <div class="card-body">
+            <h5 class="card-title">Controles de la regadora</h5>
+             <a href="{{  url_for('main.prender', gpio=18) }}" class="btn btn-outline-secondary btn-lg btn-block mb-1"><i class="fas fa-toggle-on mr-2"></i>Prender motor 1</a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </article>
+
+{% endblock content %}
