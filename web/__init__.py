@@ -64,7 +64,7 @@ def create_app():
                         turnon.curval = 1
                         turnon.lastoff = ts
                         gpio.output(turnon.pin, gpio.HIGH)
-                        msg = Historial(trigger='timer', mensaje='{} encendido'.format(Estado.pin))
+                        msg = Historial(trigger='timer', mensaje='{} encendido'.format(turnon.pin))
                         db.session.add(msg)
                         db.session.flush()
                     else:
@@ -73,7 +73,7 @@ def create_app():
                             gpio.output(turnoff.pin, gpio.LOW)
                             turnoff.curval = 0
                             turnoff.laston = ts
-                            msg = Historial(trigger='timer', mensaje='{} apagado'.format(Estado.pin))
+                            msg = Historial(trigger='timer', mensaje='{} apagado'.format(turnoff.pin))
                             db.session.add(msg)
                             if timer.repeat > 0:
                                 timer.repeat = timer.repeat - 1
